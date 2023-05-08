@@ -1,7 +1,7 @@
 print("The Zen of Python, by Tim Peters\n")
 print("Beautiful is better than ugly.\nExplicit is better than implicit.")
 print("Simple is better than complex.\nComplex is better than complicated.")
-print("Flat is better than nested.\nSparse is better thsan dense.\nReadability counts.")
+print("Flat is better than nested.\nSparse is better than dense.\nReadability counts.")
 print("Special cases arent't special enough to break the rules.")
 print("Although practicality beats purity")
 print("Errors should never pass silently.\nUnless explicitly silenced.")
