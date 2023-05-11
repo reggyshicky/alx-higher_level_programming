@@ -9,12 +9,12 @@ if __name__ == "__main__":
     len_var = len(list_var) - 1
 
     if len_var == 0:
-        print(len_var, "arguments")
+        print(len_var, "arguments.")
     elif len_var == 1:
-        print(len_var, "argument")
+        print(len_var, "argument:")
         for z in range(1, len_var + 1):
             print("{:d}: {}".format(z, list_var[z]))
     elif len_var > 1:
-        print(len_var, "arguments")
+        print(len_var, "arguments:")
         for k in range(1, len_var + 1):
             print("{:d}: {}".format(k, list_var[k]))
