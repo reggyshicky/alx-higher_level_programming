@@ -11,4 +11,4 @@ def print_matrix_integer(matrix=[[]]):
             if w == columns - 1:
                 print("{:d}".format(matrix[x][w]))
             else:
-                print("{:d}".format(matrix[x][w]), end="")
+                print("{:d}".format(matrix[x][w]), end=" ")
