@@ -10,7 +10,7 @@ def roman_to_int(roman_string):
     valueprev = 0
 
     for _numeral in reversed(roman_string):
-        present_val = Rom_numeral.get(_numeral, 0)  # zero if key is not present
+        present_val = Rom_numeral.get(_numeral, 0)  # zero !key
 
         if present_val >= valueprev:
             solution = solution + present_val
