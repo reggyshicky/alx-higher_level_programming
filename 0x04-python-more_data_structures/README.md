@@ -1,6 +1,6 @@
 ## 0X04.Python - More Data Structures: Set, Dictionary
---
-0. Function that computes the square value of all integers of  a matrix
+-
+0. Function that computes the square value of all integers of  a matrix..
 1. Function that replaces all occurrences of an element by another in a new list
 2. Function that adds all unique integers in a list(only once for each integer)
 3. Function that returns a set of common elements in two sets
@@ -13,7 +13,7 @@
 10. Function that returns a key with the biggest integer value
 11. Function that returns a list with all values multiplied by a number without using any loops
 12. Create a function that convers a Roman Numeral to an integer
-13.Write a function that returns the weighted average of all integers tuple
+13. Write a function that returns the weighted average of all integers tuple
 14. Function that computes the square value of all integers of a matrix using map
 15. Function that deletes keys with a specific value in a dictionary
 16. Create two C functions that print some basic info about python lists and Python bytes objects.
