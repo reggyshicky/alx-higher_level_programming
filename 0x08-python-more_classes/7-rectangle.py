@@ -12,7 +12,7 @@ class Rectangle():
         """Initializes the rectangle attributes"""
         self.width = width
         self.height = height
-        Rectangle.number_of_instances += 1
+        type(self).number_of_instances += 1
 
     @property
     def width(self):
@@ -51,14 +51,18 @@ class Rectangle():
             return ""
         else:
             solution = ""
-            for w in range(self.__height - 1):
-                solution += str(self.print_symbol * self.__width) + '\n'
-            solution += str(self.print_symbol * self.__width)
+            str_symbol = str(self.print_symbol)
+            for row in range(self.__height - 1):
+                solution += (str_symbol * self.__width) + '\n'
+            solution += str_symbol * self.__width
         return solution
 
     def __repr__(self):
-        return "Rectangle({}, {})".format(self.__width, self.__height)
+        h = str(self.__height)
+        w = str(self.__width)
+        solution = "Rectangle(" + w + ", " + h + ")"
+        return solution
 
     def __del__(self):
-        Rectangle.number_of_instances -= 1
         print("Bye rectangle...")
+        type(self).number_of_instances -= 1
