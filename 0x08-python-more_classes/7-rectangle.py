@@ -1,4 +1,4 @@
-#!/user/bin/python3
+#!/usr/bin/python3
 """Module representation for the shape rectangle"""
 
 
