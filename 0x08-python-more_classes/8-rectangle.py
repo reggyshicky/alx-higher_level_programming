@@ -23,7 +23,7 @@ class Rectangle():
         if type(value) is not int:
             raise TypeError("width must be an integer")
         if value < 0:
-            raise ValueError("width msut be >= 0")
+            raise ValueError("width must be >= 0")
         self.__width = value
 
     @property
@@ -64,7 +64,7 @@ class Rectangle():
         else:
             solution = ""
             str_symbol = str(self.print_symbol)
-            for row in range(selff.__height - 1):
+            for row in range(self.__height - 1):
                 solution += (str_symbol * self.__width) + '\n'
             solution += str_symbol * self.__width
         return solution
