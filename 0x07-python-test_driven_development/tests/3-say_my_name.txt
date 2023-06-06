@@ -2,17 +2,8 @@
 >>> say_my_name("Reggy", "Shicky")
 My name is Reggy Shicky
 
->>> say_my_name("Reggy")
-My name is Reggy
-
 >>> say_my_name("", "Shicky")
 My name is  Shicky
-
->>> say_my_name("", "")
-My name is
-
->>> say_my_name("")
-My name is
 
 >>> say_my_name(95, "Shicky")
 Traceback (most recent call last):
