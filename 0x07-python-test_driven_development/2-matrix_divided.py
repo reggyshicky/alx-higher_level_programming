@@ -8,11 +8,11 @@ def matrix_divided(matrix, div):
     """
     Function to divide all elememnts of a matrix
     """
-    matrix_erro = "matrix must be a matrix (list of lists) of integers/floats"
     for row in matrix:
         for elem in row:
             if type(elem) != int and type(elem) != float:
-                raise TypeError(matrix_erro)
+                raise TypeError("matrix must be a matrix \
+                (list of lists) of integers/floats")
     len_row = len(matrix[0])
     for row in matrix:
         if len(row) != len_row:
