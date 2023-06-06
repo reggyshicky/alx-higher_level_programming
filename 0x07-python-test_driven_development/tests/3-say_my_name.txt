@@ -5,6 +5,9 @@ My name is Reggy Shicky
 >>> say_my_name("", "Shicky")
 My name is  Shicky
 
+>>> say_my_name("Reggy")
+My name is Reggy 
+
 >>> say_my_name(95, "Shicky")
 Traceback (most recent call last):
 TypeError: first_name must be a string
@@ -17,6 +20,9 @@ TypeError: first_name must be a string
 Traceback (most recent call last):
 TypeError: last_name must be a string
 
+>>> say_my_name("")
+My name is  
+
 >>> say_my_name("Reggy", None)
 Traceback (most recent call last):
 TypeError: last_name must be a string
@@ -24,6 +30,9 @@ TypeError: last_name must be a string
 >>> say_my_name(None)
 Traceback (most recent call last):
 TypeError: first_name must be a string
+
+>>> say_my_name("", "")
+My name is  
 
 >>> say_my_name()
 Traceback (most recent call last):
