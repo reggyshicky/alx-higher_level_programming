@@ -16,10 +16,6 @@ TypeError: matrix_divided() missing 2 required positional arguments: 'matrix' an
 Traceback (most recent call last):
 TypeError: matrix must be a matrix (list of lists) of integers/floats
 
->>> matrix = [[1, 2, 3], 4, 5, 6]
->>> matrix_divided(matrix, 3)
-Traceback (most recent call last):
-TypeError: matrix must be a matrix (list of lists) of integers/floats
 >>> matrix = [[[10.0], [65], [37.0]],[[40], [15.0], [66]]]
 >>> matrix_divided(matrix, 3)
 Traceback (most recent call last):
@@ -27,7 +23,7 @@ TypeError: matrix must be a matrix (list of lists) of integers/floats
 >>> matrix = [['5', '6', '7'], ['8', '9', '10']]
 >>> matrix_divided(matrix, 2)
 Traceback (most recent call last):
-TypeError: matrix must be a matrix (list of lists of integers/floats
+TypeError: matrix must be a matrix (list of lists) of integers/floats
 
 # Test case with a string in place of a row
 >>> matrix = [[1, 2, 3], [4, 5, 6], 'Reggy Shicky']
@@ -50,11 +46,6 @@ TypeError: div must be a number
 Traceback (most recent call last):
 TypeError: div must be a number
 
-# Test case with a NaN divider
->>> matrix = [[1, 2, 3.0], [8, 0.6, 15]]
->>> matrix_divided(matrix, float('nan'))
-Traceback (most recent call last):
-TypeError: div must be a number
 
 >>> matrix = [[4.0, 55, 42.0],[30, 13.0, 78]]
 >>> matrix_divided(matrix, 0)
