@@ -1,0 +1,63 @@
+>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+>>> bg = BaseGeometry()
+>>> type(bg) == BaseGeometry
+True
+
+
+>>> type(BaseGeometry.__dict__['area'])
+<class 'function'>
+
+>>> bg.__class__.area()
+Traceback (most recent call last):
+TypeError: area() missing 1 required positional argument: 'self'
+
+>>> bg.area(15)
+Traceback (most recent call last):
+TypeError: area() takes 1 positional argument but 2 were given
+
+>>> bg.area()
+Traceback (most recent call last):
+Exception: area() is not implemented
+
+>>> type(BaseGeometry.__dict__['integer_validator'])
+<class 'function'>
+
+>>> bg.__class__.integer_validator()
+Traceback (most recent call last):
+TypeError: integer_validator() missing 3 required positional arguments: 'self', 'name', and 'value'
+
+>>> bg.integer_validator()
+Traceback (most recent call last):
+TypeError: integer_validator() missing 2 required positional arguments: 'name' and 'value'
+>>> bg.integer_validator(5, 5, 5)
+Traceback (most recent call last):
+TypeError: integer_validator() takes 3 positional arguments but 4 were given
+
+>>> bg.integer_validator("reg", 8.0)
+Traceback (most recent call last):
+TypeError: reg must be an integer
+
+>>> bg.integer_validator("shi", 8.15)
+Traceback (most recent call last):
+TypeError: shi must be an integer
+
+>>> bg.integer_validator("lel", "kel")
+Traceback (most recent call last):
+TypeError: lel must be an integer
+
+>>> bg.integer_validator("elem", -5)
+Traceback (most recent call last):
+ValueError: elem must be greater than 0
+
+>>> bg.integer_validator("elem", 56)
+>>> bg.integer_validator("elem", 5)
+>>> bg.integer_validator("", 6)
+>>> bg.integer_validator(None, 3)
+
+>>> bg.integer_validator("elem", (5, 7))
+Traceback (most recent call last):
+TypeError: elem must be an integer
+
+>>> bg.integer_validator("elem", {1, 2})
+Traceback (most recent call last):
+TypeError: elem must be an integer
