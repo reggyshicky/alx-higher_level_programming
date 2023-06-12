@@ -9,8 +9,7 @@ def lookup(obj):
     list_meth = []
 
     for names in dir(obj):
-        userdefined = getattr(obj, names)
-        if callable(userdefined):
+        if callable(names):
             list_meth.append(names)
         else:
             list_attr.append(names)
