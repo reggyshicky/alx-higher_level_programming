@@ -9,8 +9,10 @@ def inherits_from(obj, a_class):
     """
 
     return issubclass(type(obj), a_class) and type(obj) is not a_class
+
+
 """
-the issubclass is used to check ig the class of the object type(obj) is a 
+the issubclass is used to check ig the class of the object type(obj) is a
 subclass of the specified class(a_class), the 2nd part is used to ensure that
 the object's class is not the same as the specified class, this is neccessary
 to exclude cases where the object's class is exactly the same as a_class
