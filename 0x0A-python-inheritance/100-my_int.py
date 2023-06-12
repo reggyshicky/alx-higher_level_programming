@@ -3,6 +3,7 @@
 
 
 class MyInt(int):
+    """class that defines the subclass MyInt"""
     def __eq__(self, other):  # qe method used 4 equality comparsion(==)
         return super().__ne__(other)  # ne method 4 inequality " (!=)
 
