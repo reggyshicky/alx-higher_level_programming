@@ -1,4 +1,4 @@
-#!/usr/bin.python3
+#!/usr/bin/python3
 """A module documentation that creates subclass using superclass"""
 
 
