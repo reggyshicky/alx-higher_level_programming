@@ -1,4 +1,4 @@
-#!/usr/python3
+#!/usr/bin/python3
 """module documentation for an empty class"""
 
 
