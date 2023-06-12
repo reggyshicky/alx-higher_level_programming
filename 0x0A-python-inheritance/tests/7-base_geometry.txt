@@ -1,63 +1,70 @@
 >>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
 >>> bg = BaseGeometry()
->>> type(bg) == BaseGeometry
-True
+>>> type(bg)
+<class '7-base_geometry.BaseGeometry'>
+>>> print(bg) # doctest: +ELLIPSIS
+<7-base_geometry.BaseGeometry object at ...>
 
-
->>> type(BaseGeometry.__dict__['area'])
-<class 'function'>
-
->>> bg.__class__.area()
+>>> bg = BaseGeometry(None)
 Traceback (most recent call last):
-TypeError: area() missing 1 required positional argument: 'self'
+TypeError: BaseGeometry() takes no arguments
 
->>> bg.area(15)
-Traceback (most recent call last):
-TypeError: area() takes 1 positional argument but 2 were given
+>>> bg = BaseGeometry()
+>>> print(bg.area) # doctest: +ELLIPSIS, +NORMALIZE_WHITESPACE
+<bound method BaseGeometry.area of <7-base_geometry.BaseGeometry
+object at...>>
 
 >>> bg.area()
 Traceback (most recent call last):
 Exception: area() is not implemented
 
->>> type(BaseGeometry.__dict__['integer_validator'])
-<class 'function'>
+>>> print(bg.integer_validator) # doctest: +ELLIPSIS, +NORMALIZE_WHITESPACE
+<bound method BaseGeometry.integer_validator of <7-base_geometry.BaseGeometry 
+object at...>>
 
->>> bg.__class__.integer_validator()
+>>> bg.integer_validator("valid no", 1)
+>>> bg.integer_validator("invalid no", "no")
 Traceback (most recent call last):
-TypeError: integer_validator() missing 3 required positional arguments: 'self', 'name', and 'value'
+TypeError: invalid no must be an integer
 
->>> bg.integer_validator()
+>>> bg.integer_validator("invalid no", True)
 Traceback (most recent call last):
-TypeError: integer_validator() missing 2 required positional arguments: 'name' and 'value'
->>> bg.integer_validator(5, 5, 5)
-Traceback (most recent call last):
-TypeError: integer_validator() takes 3 positional arguments but 4 were given
+TypeError: invalid no must be an integer
 
->>> bg.integer_validator("reg", 8.0)
+>>> bg.integer_validator("tuple", (1,))
 Traceback (most recent call last):
-TypeError: reg must be an integer
+TypeError: tuple must be an integer
 
->>> bg.integer_validator("shi", 8.15)
+>>> bg.integer_validator("list_no", [3])
 Traceback (most recent call last):
-TypeError: shi must be an integer
+TypeError: list_no must be an integer
 
->>> bg.integer_validator("lel", "kel")
+>>> bg.integer_validator("set_no", {5, 6})
 Traceback (most recent call last):
-TypeError: lel must be an integer
+TypeError: set_no must be an integer
 
->>> bg.integer_validator("elem", -5)
+>>> bg.integer_validator("any_no", None)
 Traceback (most recent call last):
-ValueError: elem must be greater than 0
+TypeError: any_no must be an integer
 
->>> bg.integer_validator("elem", 56)
->>> bg.integer_validator("elem", 5)
->>> bg.integer_validator("", 6)
->>> bg.integer_validator(None, 3)
-
->>> bg.integer_validator("elem", (5, 7))
+>>> bg.integer_validator("the_no", 0)
 Traceback (most recent call last):
-TypeError: elem must be an integer
+ValueError: the_no must be greater than 0
 
->>> bg.integer_validator("elem", {1, 2})
+>>> bg.integer_validator("the_no", -1)
 Traceback (most recent call last):
-TypeError: elem must be an integer
+ValueError: the_no must be greater than 0
+
+>>> bg.integer_validator() # doctest: +NORMALIZE_WHITESPACE
+Traceback (most recent call last):
+TypeError: integer_validator() missing 2 required positional arguments: 
+'name' and 'value'
+
+>>> bg.integer_validator(None) # doctest: +NORMALIZE_WHITESPACE
+Traceback (most recent call last):
+TypeError: integer_validator() missing 1 required positional argument: 
+'value'
+
+>>> bg.integer_validator({"b": 2}, (3, 4))
+Traceback (most recent call last):
+TypeError: unsupported format string passed to dict.__format__
