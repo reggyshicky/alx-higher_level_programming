@@ -19,12 +19,12 @@ status_codes = {
         '500': 0
         }
 
-total_size = z = 0
+total_size = i = 0
 
 
 def print_status():
     """function that computes metrics"""
-    print(f'file size: {total_size}')
+    print(f'File size: {total_size}')
     for key, value in sorted(status_codes.items()):
         if value > 0:
             print('{:s}: {:d}'.format(key, value))
