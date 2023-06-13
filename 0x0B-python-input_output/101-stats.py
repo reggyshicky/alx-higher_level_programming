@@ -29,18 +29,19 @@ def print_status():
         if value > 0:
             print('{:s}: {:d}'.format(key, value))
 
-    try:
-        for line in stdin:
-            split_line = line.split()
-            if len(split_line) >= 2:
-                status = split_line[-2]
-                total_size += int(split_line[-1])
-                if status in status_codes:
-                    status_codes[status] += 1
-            z = z + 1
 
-            if z % 10 == 0:
-                print_status()
-        print_status()
-    except KeyboardInterrupt as e:
-        print_status()
+try:
+    for line in stdin:
+        split_line = line.split()
+        if len(split_line) >= 2:
+            status = split_line[-2]
+            total_size += int(split_line[-1])
+            if status in status_codes:
+                status_codes[status] += 1
+        i = i + 1
+
+        if i % 10 == 0:
+            print_status()
+    print_status()
+except KeyboardInterrupt as e:
+    print_status()
