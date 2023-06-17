@@ -38,9 +38,9 @@ try:
             total_size += int(split_line[-1])
             if status in status_codes:
                 status_codes[status] += 1
-        i = i + 1
+        w = w + 1
 
-        if i % 10 == 0:
+        if w % 10 == 0:
             print_status()
     print_status()
 except KeyboardInterrupt as e:
