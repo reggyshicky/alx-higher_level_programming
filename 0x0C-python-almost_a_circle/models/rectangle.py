@@ -91,3 +91,19 @@ class Rectangle(Base):
         """returns a human-readable description of class attributes"""
         return "[Rectangle] ({:d}) {:d}/{:d} - {:d}/{:d}".format(
                 self.id, self.x, self.y, self.width, self.height)
+
+    def update(self, *args, **kwargs):
+        """use passing args using *args and *kwargs"""
+        len_args = len(args)
+        len_kwargs = len(kwargs)
+        names_of_attr = ["id", "width", "height", "x", "y"]
+
+        if len_args > 5:
+            len_args = 5
+        if len_args > 0:
+            for w in range(len_args):
+                setattr(self, names_of_attr[w], args[w])
+        elif len_kwargs > 0:
+            for key, value in kwargs.items():
+                if key in names_of_attr:
+                    setattr(self, key, value)
