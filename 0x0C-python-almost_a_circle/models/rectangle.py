@@ -86,3 +86,8 @@ class Rectangle(Base):
                 print(" " * self.__x, end="")
 
             print("#" * self.__width)
+
+    def __str__(self):
+        """returns a human-readable description of class attributes"""
+        return "[Rectangle] ({:d}) {:d}/{:d} - {:d}/{:d}".format(
+                self.id, self.x, self.y, self.width, self.height)
