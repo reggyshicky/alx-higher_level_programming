@@ -2,6 +2,7 @@
 """module documentation for a class Base"""
 
 
+from os import path
 import json
 
 
@@ -58,3 +59,19 @@ class Base():
                 dummy_instance = cls(8)
             dummy_instance.update(**dictionary)
             return dummy_instance
+
+    @classmethod
+    def load_from_file(cls):
+        """returns a list of instances"""
+        file_name = cls.__name__ + ".json"
+
+        if path.exists(file_name) is False:  # checks if file exists
+            return []
+        with open(file_name, mode="r", encoding="utf-8") as f:
+            python_objs = cls.from_json_string(f.read())
+            list_instances = []
+
+            for obj in python_objs:
+                list_instances.append(cls.create(**obj))
+
+            return list_instances
