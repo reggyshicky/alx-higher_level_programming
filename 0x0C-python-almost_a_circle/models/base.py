@@ -47,3 +47,14 @@ class Base():
             return []
 
         return json.loads(json_string)
+
+    @classmethod
+    def create(cls, **dictionary):
+        """implements **dictionary as **kwargs using update mthd"""
+        if dictionary and dictionary != {}:
+            if cls.__name__ == "Rectangle":
+                dummy_instance = cls(8, 8)
+            if cls.__name__ == "Square":
+                dummy_instance = cls(8)
+            dummy_instance.update(**dictionary)
+            return dummy_instance
