@@ -39,3 +39,10 @@ class Base():
                 list_dicts.append(obj.to_dictionary())
 
             return f.write(cls.to_json_string(list_dicts))
+
+    def from_json_string(json_string):
+        """return a python obj from a json string"""
+        if json_string is None or len(json_string) == 0:
+            return []
+
+        return json.loads(json_string)
