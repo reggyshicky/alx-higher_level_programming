@@ -26,3 +26,20 @@ class Square(Rectangle):
     def __str__(self):
         return "[Square] ({:d}) {:d}/{:d} - {:d}".format(
                 self.id, self.x, self.y, self.width)
+
+    def update(self, *args, **kwargs):
+        """update the key-worded and non-keyworded args accordingly"""
+        len_args = len(args)
+        len_kwargs = len(kwargs)
+        names_of_attr = ["id", "size", "x", "y"]
+
+        if len_args > 4:
+            len_args = 4
+
+        if len_args > 0:
+            for w in range(len_args):
+                setattr(self, names_of_attr[w], args[w])
+        elif len_kwargs > 0:
+            for key, value in kwargs.items():
+                if key in names_of_attr:
+                    setattr(self, key, value)
