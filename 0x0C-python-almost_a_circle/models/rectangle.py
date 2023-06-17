@@ -93,7 +93,7 @@ class Rectangle(Base):
                 self.id, self.x, self.y, self.width, self.height)
 
     def update(self, *args, **kwargs):
-        """use passing args using *args and *kwargs"""
+        """use for passing args using *args and *kwargs"""
         len_args = len(args)
         len_kwargs = len(kwargs)
         names_of_attr = ["id", "width", "height", "x", "y"]
