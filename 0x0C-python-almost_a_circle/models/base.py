@@ -40,6 +40,7 @@ class Base():
 
             return f.write(cls.to_json_string(list_dicts))
 
+    @staticmethod
     def from_json_string(json_string):
         """return a python obj from a json string"""
         if json_string is None or len(json_string) == 0:
