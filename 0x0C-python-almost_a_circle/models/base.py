@@ -2,6 +2,7 @@
 """module documentation for a class Base"""
 
 
+import csv
 from os import path
 import json
 
@@ -75,3 +76,36 @@ class Base():
                 list_instances.append(cls.create(**obj))
 
             return list_instances
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """serializes in csv"""
+        file_name = cls.__name__ + ".csv"
+        with open(file_name, "w", newline="") as csvfile:
+            if list_objs is None or list_objs == []:
+                csvfile.write("[]")
+            else:
+                if cls.__name__ == "Rectangle":
+                    lstattr = ["id", "width", "height", "x", "y"]
+                else:
+                    lstattr = ["id", "size", "x", "y"]
+                writer = csv.DictWriter(csvfile, fieldnames=lstattr)
+                for elem in list_objs:
+                    writer.writerow(elem.to_dictionary())
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """Deserialize csv to python object"""
+        file_name = cls.__name__ + ".csv"
+        try:
+            with open(file_name, "r", newline="") as csvfile:
+                if cls.__name__ == "Rectangle":
+                    lstattr = ["id", "width", "height", "x", "y"]
+                else:
+                    lstattr = ["id", "size", "x", "y"]
+                py_dict = csv.DictReader(csvfile, fieldnames=lstattr)
+                py_dict = [dict([k, int(v)] for k, v in dic.items())
+                           for dic in py_dict]
+                return [cls.create(**dic) for dic in py_dict]
+        except IOError:
+            return []
