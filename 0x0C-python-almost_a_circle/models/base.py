@@ -7,17 +7,17 @@ from os import path
 import json
 
 
-class Base():
+class Base:
     """defines a class called Base"""
     __nb_objects = 0
 
     def __init__(self, id=None):
         """Initializes the class Base"""
-        if id is not None:
-            self.id = id
-        else:
+        if id is None:
             Base.__nb_objects += 1
             self.id = Base.__nb_objects
+        else:
+            self.id = id
 
     @staticmethod
     def to_json_string(list_dictionaries):

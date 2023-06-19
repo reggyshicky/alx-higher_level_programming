@@ -11,6 +11,12 @@ class Rectangle(Base):
     def __init__(self, width, height, x=0, y=0, id=None):
         """Initializes the class Rectangle"""
         super().__init__(id)
+
+        self.validate_param(width, "width")
+        self.validate_param(height, "height")
+        self.validate_param(x, "x")
+        self.validate_param(y, "y")
+
         self.__width = width
         self.__height = height
         self.__x = x
@@ -23,11 +29,8 @@ class Rectangle(Base):
 
     @width.setter
     def width(self, value):
-        """sets thw width of the rectangle"""
-        if not isinstance(value, int):
-            raise TypeError("width must be an integer")
-        if value <= 0:
-            raise ValueError("width must be > 0")
+        """sets the width of the rectangle"""
+        self.validate_param(value, "width")
         self.__width = value
 
     @property
@@ -38,10 +41,7 @@ class Rectangle(Base):
     @height.setter
     def height(self, value):
         """sets the height value"""
-        if not isinstance(value, int):
-            raise TypeError("height must be an integer")
-        if value <= 0:
-            raise ValueError("height must be > 0")
+        self.validate_param(value, "height")
         self.__height = value
 
     @property
@@ -52,10 +52,7 @@ class Rectangle(Base):
     @x.setter
     def x(self, value):
         """sets the x coordinates"""
-        if not isinstance(value, int):
-            raise TypeError("x must be an integer")
-        if value < 0:
-            raise ValueError("x must be >= 0")
+        self.validate_param(value, "x")
         self.__x = value
 
     @property
@@ -66,11 +63,17 @@ class Rectangle(Base):
     @y.setter
     def y(self, value):
         """sets the y coordinates"""
-        if not isinstance(value, int):
-            raise TypeError("y must be an integer")
-        if value < 0:
-            raise ValueError("y must be >= 0")
+        self.validate_param(value,  "y")
         self.__y = value
+
+    def validate_param(self, param, value):
+        """Validates width, height, x and y"""
+        if type(param) is not int:
+            raise TypeError(value + ' must be an integer')
+        if param <= 0 and value in ("width", "height"):
+            raise ValueError(value + " must be > 0")
+        if param < 0 and value in ("x", "y"):
+            raise ValueError(value + " must be >= 0")
 
     def area(self):
         """function that calculates the area of the rectangle"""
