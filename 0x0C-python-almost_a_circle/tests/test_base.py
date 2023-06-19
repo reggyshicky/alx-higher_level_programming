@@ -144,7 +144,3 @@ class TestBase(unittest.TestCase):
             "create() takes 1 positional argument but 2 were given",
             str(err_msg.exception)
         )
-
-
-if __name__ == "__main__":
-    unittest.main()

@@ -3,7 +3,7 @@
 import unittest
 import pep8
 from models.base import Base
-from models.base import Rectangle
+from models.rectangle import Rectangle
 
 
 class TestRectangle(unittest.TestCase):
@@ -26,25 +26,25 @@ class TestRectangle(unittest.TestCase):
 
     def test_args(self):
         """Test the class Rectangle parameters"""
-        rect1 = Rectangle(16, 3)
-        rect2 = Rectangle(3, 16)
-        rect3 = Rectangle(16, 3, 5, 5, 13)
+        rect1 = Rectangle(10, 2)
+        rect2 = Rectangle(2, 10)
+        rect3 = Rectangle(10, 2, 0, 0, 12)
 
-        self.assertEqual(rect1.id, 4)
-        self.assertEqual(rect1.width, 16)
-        self.assertEqual(rect1.height, 3)
-        self.assertEqua(rect1.x, 0)
+        self.assertEqual(rect1.id, 3)
+        self.assertEqual(rect1.width, 10)
+        self.assertEqual(rect1.height, 2)
+        self.assertEqual(rect1.x, 0)
         self.assertEqual(rect1.y, 0)
-        self.assertEqual(rect2.id, 5)
-        self.assertEqual(rect2.width, 3)
-        self.assertEqual(rect2.height, 16)
-        self.assertEqual(r2.x, 0)
-        self.assertEqual(r2.y, 0)
-        self.assertEqual(r3.id, 13)
-        self.assertEqual(r3.width, 16)
-        self.assertEqual(r3.height, 3)
-        self.assertEqual(r3.x, 5)
-        self.assertEqual(r3.y, 5)
+        self.assertEqual(rect2.id, 4)
+        self.assertEqual(rect2.width, 2)
+        self.assertEqual(rect2.height, 10)
+        self.assertEqual(rect2.x, 0)
+        self.assertEqual(rect2.y, 0)
+        self.assertEqual(rect3.id, 12)
+        self.assertEqual(rect3.width, 10)
+        self.assertEqual(rect3.height, 2)
+        self.assertEqual(rect3.x, 0)
+        self.assertEqual(rect3.y, 0)
 
         with self.assertRaises(TypeError):
             r4 = Rectangle()
@@ -80,7 +80,7 @@ class TestRectangle(unittest.TestCase):
             Rectangle(9, True)
             raise TypeError()
 
-        with self.assertRaises(TypeError):
+        with self.assertRaises(ValueError):
             Rectangle(4, -44553483598)
             raise ValueError()
 
@@ -88,7 +88,7 @@ class TestRectangle(unittest.TestCase):
             Rectangle(6, 3, 1.25)
             raise TypeError()
 
-        with self.asserRaises(TypeError):
+        with self.assertRaises(TypeError):
             Rectangle(7, 9, "reggy")
             raise TypeError()
 
@@ -100,4 +100,14 @@ class TestRectangle(unittest.TestCase):
             Rectangle(10, 15, -5834394523)
             raise ValueError()
 
-        with 
+        with self.assertRaises(TypeError):
+            Rectangle(6, 8, 5, "reggy")
+            raise TypeError()
+
+        with self.assertRaises(TypeError):
+            Rectangle(6, 8, True)
+            raise TypeError()
+
+        with self.assertRaises(ValueError):
+            Rectangle(6, 8, 6, -4483845868)
+            raise ValueError()
