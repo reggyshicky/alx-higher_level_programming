@@ -109,3 +109,39 @@ class Base:
                 return [cls.create(**dic) for dic in py_dict]
         except IOError:
             return []
+
+    @staticmethod
+    def draw(list_rectangles, list_squares):
+        """Draw rectangles using the turtle module"""
+        my_turt = turtle.Turtle()
+        my_turt.screen.bgcolor("#7312c")
+        my_turt.pensize(3)
+        my_turt.shape("turtle")
+
+        my_turt.color("#fffff")
+        for rec in list_rectangles:
+            my_turt.showturtle()
+            my_turt.up()
+            my_turt.goto(rec.x, rec.y)
+            my_turt.down()
+            for w in range(2):
+                my_turt.forward(rec.width)
+                my_turt.left(90)
+                my_turt.forward(rec.height)
+                my_turt.left(90)
+            my_turt.hideturtle()
+
+        my_turt.color("#b5e3d8")
+        for sq in list_squares:
+            my_turt.showturtle()
+            my_turt.up()
+            my_turt.goto(sq.x, sq.y)
+            my_turt.down()
+            for w in range(2):
+                my_turt.forward(sq.width)
+                my_turt.left(90)
+                my_turt.forward(sq.height)
+                my_turt.left(90)
+            my_turt.hideturtle()
+
+        turtle.exitonclick
