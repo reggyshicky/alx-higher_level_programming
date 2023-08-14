@@ -10,6 +10,6 @@ if (isNaN(intval) === true) {
     for (let j = 0; j < intval; j++) {
       row += 'X';
     }
-    console.log(row); //prints the row containig 'X' characters
+    console.log(row); // prints the row containig 'X' characters
   }
 }
