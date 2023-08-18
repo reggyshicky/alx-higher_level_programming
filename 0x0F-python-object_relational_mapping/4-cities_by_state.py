@@ -5,7 +5,7 @@ script that lists all cities, module used MySQLdb
 if __name__ == "__main__":
     import MySQLdb
     import sys
-    
+
     db = MySQLdb.connect(
         host='localhost',
         port=3306,
@@ -19,6 +19,6 @@ if __name__ == "__main__":
     mydata = c.fetchall()
     for row in mydata:
         print(row)
-        
+
     c.close()
     db.close()
