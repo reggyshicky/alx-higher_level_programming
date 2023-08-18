@@ -16,7 +16,7 @@ if __name__ == "__main__":
         )
     c = db.cursor()
     c.execute("SELECT cities.name FROM cities INNER JOIN\
-              states ON state_id = states.id WHERE states.name\
+            states ON state_id = states.id WHERE states.name\
               = %s", (state, ))
     mydata = c.fetchall()
     cities = ', '.join(city[0] for city in mydata)
