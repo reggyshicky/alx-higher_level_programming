@@ -6,7 +6,7 @@ from sys import argv
 Module that lists all states from the database using MySQL
 """
 
-if __name__ == "__main__": 
+if __name__ == "__main__":
     db = MySQLdb.connect(
         host="localhost",
         user=argv[1],
@@ -24,4 +24,3 @@ if __name__ == "__main__":
 
     cursor.close()
     db.close()
-
