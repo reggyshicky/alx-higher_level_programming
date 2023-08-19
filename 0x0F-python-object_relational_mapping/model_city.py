@@ -11,6 +11,7 @@ Base = declarative_base()
 
 
 class City(Base):
+    """City class that inherit from base"""
     __tablename__ = 'cities'
 
     id = Column(Integer, nullable=False, primary_key=True,
