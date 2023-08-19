@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-script that changes the name of a Statw object from the db
+script that changes the name of a State object from the db
 """
 
 if __name__ == "__main__":
