@@ -4,7 +4,7 @@ A python script that takes in a letter sends a POST request to
 an URL with the letrer q as a parameter
 """
 
-if __name__ = "__main__":
+if __name__ == "__main__":
     import requests
     from sys import argv
 
