@@ -13,7 +13,7 @@ if __name__ == "__main__":
 
     res = requests.post("http://0.0.0.0:5000/search_user", data=value)
     try:
-        r_json = r.json()
+        r_json = res.json()
         if r_json == {}:
             print("No result")
         else:
