@@ -4,7 +4,7 @@ Script takes in a URL and sends a request to the URL
 then displays the body of the response decode in utf-8
 """
 
-if __name__ = "__main__":
+if __name__ ==  "__main__":
     from sys import argv
     from urllib import request, error
 
@@ -14,4 +14,4 @@ if __name__ = "__main__":
             print(response.read().decode("utf-8"))
 
     except error.HTTPError as e:
-        print("Error code: ', e.code)
+        print("Error code:", e.code)
